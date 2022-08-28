@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  title: get-breakfast-menu
+  description: Sample API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /get-breakfast-menu:
+    get:
+      summary: get-breakfast-menu
+      operationId: get-breakfast-menu
+      x-google-backend:
+        address: https://us-central1-ultra-mediator-352903.cloudfunctions.net/get-menu
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+    options:
+      summary: get-breakfast-menu
+      operationId: cors-get-breakfast-menu
+      x-google-backend:
+        address: https://us-central1-ultra-mediator-352903.cloudfunctions.net/get-menu
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string

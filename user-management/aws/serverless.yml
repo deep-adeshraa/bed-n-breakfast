@@ -1,0 +1,23 @@
+service: aws
+frameworkVersion: "3"
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    region: ca-central-1
+
+functions:
+    generateCipher:
+        handler: handler.generateCipher
+        events:
+            - http:
+                  path: /generateCipher
+                  method: POST
+                  cors: true
+    validateCipher:
+        handler: handler.validateCipher
+        events:
+            - http:
+                  path: /validateCipher
+                  method: POST
+                  cors: true

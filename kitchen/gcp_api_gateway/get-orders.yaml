@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  title: get-order
+  description: Sample API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /get-order:
+    get:
+      summary: get orders
+      operationId: get-order
+      x-google-backend:
+        address: https://us-central1-ultra-mediator-352903.cloudfunctions.net/get-orders
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+    options:
+      summary: get orders
+      operationId: cors-get-order
+      x-google-backend:
+        address: https://us-central1-ultra-mediator-352903.cloudfunctions.net/get-orders
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
